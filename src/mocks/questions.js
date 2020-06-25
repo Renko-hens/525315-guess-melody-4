@@ -1,10 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "./app.jsx";
-
 const AVATAR_URL = `https://api.adorable.io/avatars/128`;
 
-const questions = [
+export default [
   {
     type: `artist`,
     song: {
@@ -49,15 +45,3 @@ const questions = [
     ],
   },
 ];
-
-describe(`Render Components from App`, () => {
-  it(`Render App`, () =>{
-    const tree = renderer.create(
-        <App
-          errorCount={3}
-          questions={questions}
-        />).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-});
