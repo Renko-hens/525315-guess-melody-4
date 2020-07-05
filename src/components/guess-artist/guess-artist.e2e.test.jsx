@@ -7,8 +7,6 @@ configure({
   adapter: new Adapter(),
 });
 
-const AVATAR_URL = `https://api.adorable.io/avatars/128`;
-
 const mock = {
   question: {
     type: `artist`,

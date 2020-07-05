@@ -103,7 +103,7 @@ exports[`Render Artist Screen components Render Artist Screen 1`] = `
           <img
             alt="Keanu Reves"
             className="artist__picture"
-            src="https://api.adorable.io/avatars/128/0.1077763999545176"
+            src="https://api.adorable.io/avatars/128}"
           />
           Keanu Reves
         </label>
@@ -126,7 +126,7 @@ exports[`Render Artist Screen components Render Artist Screen 1`] = `
           <img
             alt="John Wick"
             className="artist__picture"
-            src="https://api.adorable.io/avatars/128/0.49999589064348937"
+            src="https://api.adorable.io/avatars/128}"
           />
           John Wick
         </label>
@@ -149,7 +149,7 @@ exports[`Render Artist Screen components Render Artist Screen 1`] = `
           <img
             alt="Neo Man"
             className="artist__picture"
-            src="https://api.adorable.io/avatars/128/0.8254246372520535"
+            src="https://api.adorable.io/avatars/128}"
           />
           Neo Man
         </label>
