@@ -38,6 +38,7 @@ describe(`Test components Guess Genre Screen`, () => {
     const genreQuestion = shallow(<GuessGenreScreen
       onAnswer={onAnswer}
       question={question}
+      renderPlayer={() => {}}
     />);
 
     const form = genreQuestion.find(`form`);
@@ -59,6 +60,7 @@ describe(`Test components Guess Genre Screen`, () => {
     const genreQuestion = shallow(<GuessGenreScreen
       onAnswer={onAnswer}
       question={question}
+      renderPlayer={() => {}}
     />);
 
     const form = genreQuestion.find(`form`);

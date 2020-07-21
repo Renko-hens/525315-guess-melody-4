@@ -32,6 +32,7 @@ describe(`Render Artist Screen components`, () => {
       <GuessArtistScreen
         onAnswer={() => {}}
         question={questionArtist}
+        renderPlayer={() => {}}
       />), {
       createNodeMock: () => {
         return {};

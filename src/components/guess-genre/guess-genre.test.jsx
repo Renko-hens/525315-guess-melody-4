@@ -31,6 +31,7 @@ describe(`Render GuessGenreScreen components`, () => {
       <GuessGenreScreen
         onAnswer={() => {}}
         question={questionGenre}
+        renderPlayer={() => {}}
       />), {
       createNodeMock: () => {
         return {};

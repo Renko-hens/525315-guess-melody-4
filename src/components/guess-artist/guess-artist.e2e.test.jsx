@@ -47,6 +47,7 @@ describe(`Test components Guess Genre Screen`, () => {
     const artistQuestion = shallow(<GuessArtistScreen
       onAnswer={onAnswer}
       question={question}
+      renderPlayer={() => {}}
     />);
 
     const answerInputs = artistQuestion.find(`input`);

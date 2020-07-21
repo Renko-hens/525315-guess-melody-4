@@ -5,41 +5,41 @@ export default [
     type: `artist`,
     song: {
       artist: `Jim Beam`,
-      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      src: `https://cdn51.zvooq.com/track/stream?id=66320163&code=VOI5ldak-4xWMu1Ewwv7lA&expires=1595071557`,
     },
     answers: [
       {
         picture: `${AVATAR_URL}/${Math.random()}`,
-        artist: `Keanu Reves`,
+        artist: `Noize MC`,
       },
       {
         picture: `${AVATAR_URL}/${Math.random()}`,
-        artist: `John Wick`,
+        artist: `Сплин`,
       },
       {
         picture: `${AVATAR_URL}/${Math.random()}`,
-        artist: `Neo Man`,
+        artist: `Anacondaz`,
       },
     ],
   },
   {
     type: `genre`,
-    genre: `rock`,
+    genre: `Hip-Hop/Rap`,
     answers: [
       {
-        src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-        type: `rock`,
+        src: `https://cdn51.zvooq.com/track/stream?id=66452635&code=RL-eEA0ZHjBF2DOT6SAXwA&expires=1595071586`,
+        type: `Hip-Hop/Rap`,
       },
       {
-        src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-        type: `jazz`,
+        src: `https://cdn61.zvooq.com/track/stream?id=70557593&code=IqMSpwnWJ0Q_RTj2wlXvFQ&expires=1595071611`,
+        type: `Hip-Hop`,
       },
       {
-        src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-        type: `blues`,
+        src: `https://cdn52.zvooq.com/track/stream?id=55043206&code=9ddN8OkjJuUL4GS-8him2Q&expires=1595071626`,
+        type: `Rap`,
       },
       {
-        src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+        src: `https://cdn61.zvooq.com/track/stream?id=57769183&code=qyoacZD8kOSglCrFXa_P5A&expires=1595071635`,
         type: `country`,
       }
     ],
