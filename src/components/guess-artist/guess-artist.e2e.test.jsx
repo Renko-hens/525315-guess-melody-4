@@ -38,14 +38,14 @@ const mockEvent = {
 describe(`Test components Guess Genre Screen`, () => {
   it(`Click on user answer should pass to the callback data-object from which this answer was created`, () => {
     const {question} = mock;
-    const onAnswer = jest.fn();
+    const onUserAnswer = jest.fn();
     const userAnswer = {
       picture: `pic-one`,
       artist: `Keanu Reves`,
     };
 
     const artistQuestion = shallow(<GuessArtistScreen
-      onAnswer={onAnswer}
+      onUserAnswer={onUserAnswer}
       question={question}
       renderPlayer={() => {}}
     />);
@@ -55,9 +55,9 @@ describe(`Test components Guess Genre Screen`, () => {
 
     answerOne.simulate(`change`, mockEvent);
 
-    expect(onAnswer).toHaveBeenCalledTimes(1);
+    expect(onUserAnswer).toHaveBeenCalledTimes(1);
 
-    expect(onAnswer.mock.calls[0][0]).toMatchObject(question);
-    expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
+    expect(onUserAnswer.mock.calls[0][0]).toMatchObject(question);
+    expect(onUserAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
   });
 });

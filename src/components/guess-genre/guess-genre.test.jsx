@@ -8,19 +8,19 @@ const questionGenre = {
   answers: [
     {
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      type: `rock`,
+      genre: `rock`,
     },
     {
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      type: `jazz`,
+      genre: `jazz`,
     },
     {
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      type: `blues`,
+      genre: `blues`,
     },
     {
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      type: `country`,
+      genre: `country`,
     }
   ],
 };
@@ -29,7 +29,7 @@ describe(`Render GuessGenreScreen components`, () => {
   it(`Render GuessGenreScreen`, () => {
     const tree = renderer.create((
       <GuessGenreScreen
-        onAnswer={() => {}}
+        onUserAnswer={() => {}}
         question={questionGenre}
         renderPlayer={() => {}}
       />), {

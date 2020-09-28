@@ -9,12 +9,12 @@ Enzyme.configure({
 
 describe(`Test components Welcome Screen`, () => {
   it(`Should welcome button pressed`, () => {
-    const welcomeButtonClickHandler = jest.fn();
+    const onWelcomeButtonClick = jest.fn();
 
     const welcomeScreen = mount(
         <WelcomeScreen
           errorCount={3}
-          buttonClickHandler={welcomeButtonClickHandler}
+          onWelcomeButtonClick={onWelcomeButtonClick}
         />
     );
 
@@ -22,6 +22,6 @@ describe(`Test components Welcome Screen`, () => {
 
     welcomeButton.simulate(`click`, {preventDefault() {}});
 
-    expect(welcomeButtonClickHandler).toHaveBeenCalledTimes(1);
+    expect(onWelcomeButtonClick).toHaveBeenCalledTimes(1);
   });
 });

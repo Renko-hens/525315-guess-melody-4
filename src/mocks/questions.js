@@ -9,15 +9,15 @@ export default [
     },
     answers: [
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
-        artist: `Noize MC`,
+        picture: `${AVATAR_URL}A`,
+        artist: `Jim Beam`,
       },
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
+        picture: `${AVATAR_URL}/AB`,
         artist: `Сплин`,
       },
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
+        picture: `${AVATAR_URL}/AC`,
         artist: `Anacondaz`,
       },
     ],
@@ -28,19 +28,19 @@ export default [
     answers: [
       {
         src: `https://cdn51.zvooq.com/track/stream?id=66452635&code=RL-eEA0ZHjBF2DOT6SAXwA&expires=1595071586`,
-        type: `Hip-Hop/Rap`,
+        genre: `Hip-Hop/Rap`,
       },
       {
         src: `https://cdn61.zvooq.com/track/stream?id=70557593&code=IqMSpwnWJ0Q_RTj2wlXvFQ&expires=1595071611`,
-        type: `Hip-Hop`,
+        genre: `Hip-Hop`,
       },
       {
         src: `https://cdn52.zvooq.com/track/stream?id=55043206&code=9ddN8OkjJuUL4GS-8him2Q&expires=1595071626`,
-        type: `Rap`,
+        genre: `Rap`,
       },
       {
         src: `https://cdn61.zvooq.com/track/stream?id=57769183&code=qyoacZD8kOSglCrFXa_P5A&expires=1595071635`,
-        type: `country`,
+        genre: `country`,
       }
     ],
   },

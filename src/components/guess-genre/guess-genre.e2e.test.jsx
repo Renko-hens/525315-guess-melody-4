@@ -12,19 +12,19 @@ const mock = {
     answers: [
       {
         src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-        type: `rock`,
+        genre: `rock`,
       },
       {
         src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-        type: `jazz`,
+        genre: `jazz`,
       },
       {
         src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-        type: `blues`,
+        genre: `blues`,
       },
       {
         src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-        type: `country`,
+        genre: `country`,
       }
     ],
   },
@@ -33,10 +33,10 @@ const mock = {
 describe(`Test components Guess Genre Screen`, () => {
   it(`Should Guess Genre Screen form send`, () => {
     const {question} = mock;
-    const onAnswer = jest.fn();
+    const onUserAnswer = jest.fn();
 
     const genreQuestion = shallow(<GuessGenreScreen
-      onAnswer={onAnswer}
+      onUserAnswer={onUserAnswer}
       question={question}
       renderPlayer={() => {}}
     />);
@@ -47,18 +47,18 @@ describe(`Test components Guess Genre Screen`, () => {
       preventDefault: formSendPrevention,
     });
 
-    expect(onAnswer).toHaveBeenCalledTimes(1);
+    expect(onUserAnswer).toHaveBeenCalledTimes(1);
     expect(formSendPrevention).toHaveBeenCalledTimes(1);
 
   });
 
   it(`User answer passed to callback is consistent with "userAnswer" prop`, () => {
     const {question} = mock;
-    const onAnswer = jest.fn((...args) => [...args]);
+    const onUserAnswer = jest.fn((...args) => [...args]);
     const userAnswer = [false, true, false, false];
 
     const genreQuestion = shallow(<GuessGenreScreen
-      onAnswer={onAnswer}
+      onUserAnswer={onUserAnswer}
       question={question}
       renderPlayer={() => {}}
     />);
@@ -69,10 +69,10 @@ describe(`Test components Guess Genre Screen`, () => {
     inputTwo.simulate(`change`, {target: {checked: true}});
     form.simulate(`submit`, {preventDefault() {}});
 
-    expect(onAnswer).toHaveBeenCalledTimes(1);
+    expect(onUserAnswer).toHaveBeenCalledTimes(1);
 
-    expect(onAnswer.mock.calls[0][0]).toMatchObject(question);
-    expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
+    expect(onUserAnswer.mock.calls[0][0]).toMatchObject(question);
+    expect(onUserAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
 
     expect(genreQuestion.find(`input`).map((answerInput) => answerInput.prop(`checked`)))
       .toEqual(userAnswer);

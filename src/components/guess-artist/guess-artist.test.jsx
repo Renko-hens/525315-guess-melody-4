@@ -30,7 +30,7 @@ describe(`Render Artist Screen components`, () => {
   it(`Render Artist Screen`, () => {
     const tree = renderer.create((
       <GuessArtistScreen
-        onAnswer={() => {}}
+        onUserAnswer={() => {}}
         question={questionArtist}
         renderPlayer={() => {}}
       />), {

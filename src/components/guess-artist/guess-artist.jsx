@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {GameType} from "../../const.js";
 
 const GuessArtistScreen = (props) => {
-  const {question, onAnswer, renderPlayer} = props;
+  const {question, onUserAnswer, renderPlayer} = props;
   const {song, answers} = question;
 
   return (
@@ -24,7 +23,7 @@ const GuessArtistScreen = (props) => {
               id={`answer-${i}`}
               onChange={(evt) => {
                 evt.preventDefault();
-                onAnswer(question, answer);
+                onUserAnswer(question, answer);
               }}
             />
             <label className="artist__name" htmlFor={`answer-${i}`}>
@@ -41,7 +40,6 @@ const GuessArtistScreen = (props) => {
 
 GuessArtistScreen.propTypes = {
   question: PropTypes.shape({
-    type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
     song: PropTypes.shape({
       artist: PropTypes.string.isRequired,
       src: PropTypes.string.isRequired,
@@ -52,7 +50,7 @@ GuessArtistScreen.propTypes = {
     })).isRequired
   }).isRequired,
   renderPlayer: PropTypes.func.isRequired,
-  onAnswer: PropTypes.func.isRequired,
+  onUserAnswer: PropTypes.func.isRequired,
 };
 
 export default GuessArtistScreen;

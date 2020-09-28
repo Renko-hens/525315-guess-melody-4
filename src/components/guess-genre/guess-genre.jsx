@@ -1,6 +1,5 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import {GameType} from "../../const.js";
 
 class GuessGenreScreen extends PureComponent {
   constructor(props) {
@@ -13,7 +12,7 @@ class GuessGenreScreen extends PureComponent {
 
   render() {
     const {answers: userAnswers} = this.state;
-    const {onAnswer, question, renderPlayer} = this.props;
+    const {onUserAnswer, question, renderPlayer} = this.props;
     const {answers, genre} = question;
 
     return (
@@ -23,8 +22,7 @@ class GuessGenreScreen extends PureComponent {
           className="game__tracks"
           onSubmit={(evt) => {
             evt.preventDefault();
-
-            onAnswer(question, this.state.answers);
+            onUserAnswer(question, this.state.answers);
           }}
         >
 
@@ -59,13 +57,12 @@ class GuessGenreScreen extends PureComponent {
 }
 
 GuessGenreScreen.propTypes = {
-  onAnswer: PropTypes.func.isRequired,
+  onUserAnswer: PropTypes.func.isRequired,
   question: PropTypes.shape({
-    type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
     genre: PropTypes.string.isRequired,
     answers: PropTypes.arrayOf(PropTypes.shape({
       src: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
     })).isRequired,
   }).isRequired,
   renderPlayer: PropTypes.func.isRequired,
