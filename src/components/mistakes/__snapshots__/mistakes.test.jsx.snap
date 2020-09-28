@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With noone count 1`] = `
+<div
+  className="game__mistakes"
+/>
+`;
+
+exports[`With one count 1`] = `
+<div
+  className="game__mistakes"
+>
+  <div
+    className="wrong"
+  />
+</div>
+`;
