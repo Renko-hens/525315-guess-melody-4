@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer.js";
 
-import withAudioPlayer from "../../hocs/with-audio-player/with-audio-player.js";
+import withActivePlayer from "../../hocs/with-active-player/with-active-player.js";
 
 import GameScreen from "../game-screen/game-screen.jsx";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
@@ -12,8 +12,8 @@ import GuessArtistScreen from "../guess-artist/guess-artist.jsx";
 import GuessGenreScreen from "../guess-genre/guess-genre.jsx";
 import {GameType} from "../../const.js";
 
-const GuessArtistScreenWrapped = withAudioPlayer(GuessArtistScreen);
-const GuessGenreScreenWrapped = withAudioPlayer(GuessGenreScreen);
+const GuessArtistScreenWrapped = withActivePlayer(GuessArtistScreen);
+const GuessGenreScreenWrapped = withActivePlayer(GuessGenreScreen);
 
 class App extends PureComponent {
   _renderGameScreen() {
@@ -116,7 +116,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   onUserAnswer(question, answer) {
-    dispatch(ActionCreator.incrementMistakes(question, answer));
+    dispatch(ActionCreator.incrementMistake(question, answer));
     dispatch(ActionCreator.incrementStep());
   },
 });

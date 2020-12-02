@@ -10,8 +10,8 @@ const initialState = {
 };
 
 const ActionType = {
-  INCREMENT_MISTAKES: `INCREMENT_MISTAKES`,
   INCREMENT_STEP: `INCREMENT_STEP`,
+  INCREMENT_MISTAKES: `INCREMENT_MISTAKES`,
 };
 
 const isArtistAnswerCorrect = (question, userAnswer) => {
@@ -30,7 +30,7 @@ const ActionCreator = {
     payload: 1,
   }),
 
-  incrementMistakes: (question, userAnswer) => {
+  incrementMistake: (question, userAnswer) => {
     let answerIsCorrect = false;
 
     switch (question.type) {

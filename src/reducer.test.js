@@ -82,6 +82,21 @@ it(`Reducer should increment current step by a given value`, () => {
     step: -1,
     questions,
   });
+
+  expect(reducer({
+    maxMistakes: 3,
+    mistakes: 0,
+    step: 1,
+    questions,
+  }, {
+    type: ActionType.INCREMENT_STEP,
+    payload: 1,
+  })).toEqual({
+    maxMistakes: 3,
+    mistakes: 0,
+    step: -1,
+    questions,
+  });
 });
 
 it(`Reducer should increment current mistakes by a given value`, () => {
@@ -110,6 +125,23 @@ it(`Reducer should increment current mistakes by a given value`, () => {
     step: -1,
     questions,
   });
+
+
+  expect(reducer({
+    maxMistakes: 3,
+    mistakes: 2,
+    step: 0,
+    questions,
+  }, {
+    type: ActionType.INCREMENT_MISTAKES,
+    payload: 1,
+  })).toEqual({
+    maxMistakes: 3,
+    mistakes: 0,
+    step: -1,
+    questions,
+  });
+
 });
 
 
@@ -122,7 +154,7 @@ describe(`Action creators work correctly`, () => {
   });
 
   it(`Action creator for incrementing mistake returns action with 0 payload if answer for artist is correct`, () => {
-    expect(ActionCreator.incrementMistakes({
+    expect(ActionCreator.incrementMistake({
       type: `artist`,
       song: {
         artist: `correct`,
@@ -146,6 +178,62 @@ describe(`Action creators work correctly`, () => {
     })).toEqual({
       type: ActionType.INCREMENT_MISTAKES,
       payload: 0,
+    });
+  });
+
+  it(`Action creator for incrementing mistake returns action with 1 payload if answer for artist is incorrect`, () => {
+    expect(ActionCreator.incrementMistake({
+      type: `artist`,
+      song: {
+        artist: `correct`,
+        src: ``,
+      },
+      answers: [
+        {
+          artist: `correct`,
+          picture: ``,
+        }, {
+          artist: `incorrect`,
+          picture: ``,
+        }, {
+          artist: `incorrect-2`,
+          picture: ``,
+        },
+      ]
+    }, {
+      artist: `incorrect`,
+      picture: ``,
+    })).toEqual({
+      type: ActionType.INCREMENT_MISTAKES,
+      payload: 1,
+    });
+  });
+
+  it(`Action creator for incrementing mistake returns action with 1 payload if answer for genre is incorrect`, () => {
+    expect(ActionCreator.incrementMistake({
+      type: `genre`,
+      genre: `Hip-Hop/Rap`,
+      answers: [
+        {
+          src: ``,
+          genre: `Hip-Hop/Rap`,
+        },
+        {
+          src: ``,
+          genre: `Hip-Hop`,
+        },
+        {
+          src: ``,
+          genre: `Rap`,
+        },
+        {
+          src: ``,
+          genre: `country`,
+        }
+      ]
+    }, [true, true, true, true])).toEqual({
+      type: ActionType.INCREMENT_MISTAKES,
+      payload: 1,
     });
   });
 });

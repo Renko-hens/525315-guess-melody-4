@@ -17,15 +17,15 @@ const questions = [
     },
     answers: [
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
+        picture: `${AVATAR_URL}/A}`,
         artist: `Keanu Reves`,
       },
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
+        picture: `${AVATAR_URL}/AB}`,
         artist: `John Wick`,
       },
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
+        picture: `${AVATAR_URL}/AC}`,
         artist: `Neo Man`,
       },
     ],

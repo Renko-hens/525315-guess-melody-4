@@ -41,13 +41,13 @@ export default class AudioPlayer extends PureComponent {
 
     audio.ontimeupdate = () => {
       this.setState({
-        progress: audio.currentTime,
+        progress: Math.floor(audio.currentTime),
       });
     };
   }
 
-  componentWillUnMount() {
-    const audio = this._audioRef.current;
+  componentWillUnmount() {
+    let audio = this._audioRef.current;
 
     audio.oncanplaythrough = null;
     audio.onplay = null;
@@ -59,7 +59,6 @@ export default class AudioPlayer extends PureComponent {
   render() {
     const {isLoading, isPlaying} = this.state;
     const {onPlayButtonClick} = this.props;
-
     return (
       <Fragment>
         <button className={`track__button track__button--${isPlaying ? `pause` : `play`}`} type="button"
