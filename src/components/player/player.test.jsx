@@ -1,21 +1,24 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import AudioPlayer from "./audio-player.jsx";
+import Player from "./player.jsx.js";
 
 const mock = {
   song: {
-    src: `https://cdn51.zvooq.com/track/stream?id=66320163&code=VOI5ldak-4xWMu1Ewwv7lA&expires=1595071557`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
   },
 };
 
 it(`AudioPlayer is render correctly`, () => {
   const {song} = mock;
 
-  const tree = renderer.create(<AudioPlayer
+  const tree = renderer.create(<Player
     isPlaying = {true}
+    isLoading = {true}
     onPlayButtonClick = {() => {}}
     src={song.src}
-  />, {
+  >
+    <audio/>
+  </Player>, {
     createNodeMock: () => {
       return {};
     }

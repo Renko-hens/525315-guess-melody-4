@@ -1,5 +1,5 @@
 import React from "react";
-import {configure, shallow} from "enzyme";
+import {configure, shallow, mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import GuessGenreScreen from "./guess-genre.jsx";
 
@@ -39,6 +39,8 @@ describe(`Test components Guess Genre Screen`, () => {
       onUserAnswer={onUserAnswer}
       question={question}
       renderPlayer={() => {}}
+      onChange={() => {}}
+      userAnswers={[false, false, false, false]}
     />);
 
     const form = genreQuestion.find(`form`);
@@ -57,10 +59,12 @@ describe(`Test components Guess Genre Screen`, () => {
     const onUserAnswer = jest.fn((...args) => [...args]);
     const userAnswer = [false, true, false, false];
 
-    const genreQuestion = shallow(<GuessGenreScreen
+    const genreQuestion = mount(<GuessGenreScreen
       onUserAnswer={onUserAnswer}
       question={question}
       renderPlayer={() => {}}
+      onChange={() => {}}
+      userAnswer={userAnswer}
     />);
 
     const form = genreQuestion.find(`form`);
@@ -71,8 +75,7 @@ describe(`Test components Guess Genre Screen`, () => {
 
     expect(onUserAnswer).toHaveBeenCalledTimes(1);
 
-    expect(onUserAnswer.mock.calls[0][0]).toMatchObject(question);
-    expect(onUserAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
+    expect(onUserAnswer.mock.calls[0][0]).toEqual(void 0);
 
     expect(genreQuestion.find(`input`).map((answerInput) => answerInput.prop(`checked`)))
       .toEqual(userAnswer);

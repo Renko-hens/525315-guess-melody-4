@@ -32,6 +32,8 @@ describe(`Render GuessGenreScreen components`, () => {
         onUserAnswer={() => {}}
         question={questionGenre}
         renderPlayer={() => {}}
+        onChange={() => {}}
+        userAnswers={[false, false, false, false]}
       />), {
       createNodeMock: () => {
         return {};

@@ -4,7 +4,8 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer.js";
 
-import withAudioPlayer from "../../hocs/with-audio-player/with-audio-player.js";
+import withActivePlayer from "../../hocs/with-active-player/with-active-player.js";
+import withUserAnswer from "../../hocs/with-user-answer/with-user-answer.js";
 
 import GameScreen from "../game-screen/game-screen.jsx";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
@@ -12,8 +13,8 @@ import GuessArtistScreen from "../guess-artist/guess-artist.jsx";
 import GuessGenreScreen from "../guess-genre/guess-genre.jsx";
 import {GameType} from "../../const.js";
 
-const GuessArtistScreenWrapped = withAudioPlayer(GuessArtistScreen);
-const GuessGenreScreenWrapped = withAudioPlayer(GuessGenreScreen);
+const GuessArtistScreenWrapped = withActivePlayer(GuessArtistScreen);
+const GuessGenreScreenWrapped = withActivePlayer(withUserAnswer(GuessGenreScreen));
 
 class App extends PureComponent {
   _renderGameScreen() {
@@ -78,14 +79,14 @@ class App extends PureComponent {
 
           <Route exact path="/dev-artist">
             <GuessArtistScreenWrapped
-              onAnswer={() => {}}
+              onUserAnswer={() => {}}
               question={questions[0]}
             />
           </Route>
 
           <Route exact path="/dev-genre">
             <GuessGenreScreenWrapped
-              onAnswer={() => {}}
+              onUserAnswer={() => {}}
               question={questions[1]}
             />
           </Route>

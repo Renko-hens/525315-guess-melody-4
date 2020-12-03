@@ -1,18 +1,10 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import GuessGenreScreenItem from "../guess-genre-item/guess-genre-item.jsx";
 
 class GuessGenreScreen extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      answers: [false, false, false, false],
-    };
-  }
-
   render() {
-    const {answers: userAnswers} = this.state;
-    const {onUserAnswer, question, renderPlayer} = this.props;
+    const {onUserAnswer, onChange, question, userAnswers, renderPlayer} = this.props;
     const {answers, genre} = question;
 
     return (
@@ -22,31 +14,19 @@ class GuessGenreScreen extends PureComponent {
           className="game__tracks"
           onSubmit={(evt) => {
             evt.preventDefault();
-            onUserAnswer(question, this.state.answers);
+            onUserAnswer();
           }}
         >
 
           {answers.map((answer, i) => (
-            <div key={`${i}-${answer.src}`} className="track">
-
-              {renderPlayer(answer.src, i)}
-
-              <div className="game__answer">
-                <input className="game__input visually-hidden" type="checkbox" name="answer"
-                  id={`answer-${i}`}
-                  value={`answer-${i}`}
-                  checked={userAnswers[i]}
-                  onChange={(evt) => {
-                    const value = evt.target.checked;
-
-                    this.setState({
-                      answers: [...userAnswers.slice(0, i), value, ...userAnswers.slice(i + 1)],
-                    });
-                  }}
-                />
-                <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
-              </div>
-            </div>
+            <GuessGenreScreenItem
+              answer={answer}
+              id={i}
+              key={`${i}-${answer.src}`}
+              onChange={onChange}
+              renderPlayer={renderPlayer}
+              userAnswer={userAnswers[i]}
+            />
           ))}
 
           <button className="game__submit button" type="submit">Ответить</button>
@@ -58,6 +38,7 @@ class GuessGenreScreen extends PureComponent {
 
 GuessGenreScreen.propTypes = {
   onUserAnswer: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   question: PropTypes.shape({
     genre: PropTypes.string.isRequired,
     answers: PropTypes.arrayOf(PropTypes.shape({
@@ -66,6 +47,7 @@ GuessGenreScreen.propTypes = {
     })).isRequired,
   }).isRequired,
   renderPlayer: PropTypes.func.isRequired,
+  userAnswers: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
 
 export default GuessGenreScreen;
