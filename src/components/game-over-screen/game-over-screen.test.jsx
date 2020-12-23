@@ -5,8 +5,10 @@ import GameOverScreen from './game-over-screen.jsx';
 describe(`All renders there`, () => {
   it(`Check snapshot Game Over Screen`, () => {
     const tree = renderer.create(
-        <GameOverScreen/>
-    );
+        <GameOverScreen
+          onReplayButtonClick={() => {}}
+        />
+    ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

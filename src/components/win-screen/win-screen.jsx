@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 const WinScreen = (props) => {
-  const {mistakes} = props;
+  const {questionsCount, mistakesCount, onReplayButtonClick} = props;
+  const correctlyQuestionsCount = questionsCount - mistakesCount;
+
   return (
     <React.Fragment>
       <svg xmlns="http://www.w3.org/2000/svg" style={{position: `absolute`, left: `-1200em`}}>
@@ -19,8 +21,21 @@ const WinScreen = (props) => {
         <section className="result">
           <div className="result__logo"><img src="img/melody-logo.png" alt="Угадай мелодию" width={186} height={83} /></div>
           <h2 className="result__title">Вы настоящий меломан!</h2>
-          <p className="result__total">Вы ответили правильно на 6 вопросов и совершили {mistakes > 1 ? `${mistakes} ошибки` : `${mistakes} ошибку`}</p>
-          <button className="replay" type="button">Сыграть ещё раз</button>
+          <p
+            className="result__total"
+          >
+            Вы ответили правильно на
+            {correctlyQuestionsCount}
+            вопросов и совершили
+            {mistakesCount > 1 ? `${mistakesCount} ошибки` : `${mistakesCount} ошибку`}
+          </p>
+          <button
+            className="replay"
+            type="button"
+            onClick={onReplayButtonClick}
+          >
+            Сыграть ещё раз
+          </button>
         </section>
       </section>
     </React.Fragment>
@@ -28,7 +43,9 @@ const WinScreen = (props) => {
 };
 
 WinScreen.propTypes = {
-  mistakes: PropTypes.number.isRequired,
+  questionsCount: PropTypes.number.isRequired,
+  mistakesCount: PropTypes.number.isRequired,
+  onReplayButtonClick: PropTypes.func.isRequired,
 };
 
 export default WinScreen;
