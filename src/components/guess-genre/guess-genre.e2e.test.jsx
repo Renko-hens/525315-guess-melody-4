@@ -64,7 +64,7 @@ describe(`Test components Guess Genre Screen`, () => {
       question={question}
       renderPlayer={() => {}}
       onChange={() => {}}
-      userAnswer={userAnswer}
+      userAnswers={userAnswer}
     />);
 
     const form = genreQuestion.find(`form`);

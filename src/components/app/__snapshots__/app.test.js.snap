@@ -147,7 +147,6 @@ exports[`Render Components from App Renderer ArtistQuestionScreen 1`] = `
             name="answer"
             onChange={[Function]}
             type="checkbox"
-            value="answer-0"
           />
           <label
             className="game__check"
@@ -181,7 +180,6 @@ exports[`Render Components from App Renderer ArtistQuestionScreen 1`] = `
             name="answer"
             onChange={[Function]}
             type="checkbox"
-            value="answer-1"
           />
           <label
             className="game__check"
@@ -215,7 +213,6 @@ exports[`Render Components from App Renderer ArtistQuestionScreen 1`] = `
             name="answer"
             onChange={[Function]}
             type="checkbox"
-            value="answer-2"
           />
           <label
             className="game__check"
@@ -249,7 +246,6 @@ exports[`Render Components from App Renderer ArtistQuestionScreen 1`] = `
             name="answer"
             onChange={[Function]}
             type="checkbox"
-            value="answer-3"
           />
           <label
             className="game__check"
@@ -373,7 +369,7 @@ exports[`Render Components from App Renderer GenreQuestionScreen 1`] = `
           <img
             alt="Keanu Reves"
             className="artist__picture"
-            src="https://api.adorable.io/avatars/128/0.4444073064262275"
+            src="https://api.adorable.io/avatars/128/0.3875070748403262"
           />
           Keanu Reves
         </label>
@@ -396,7 +392,7 @@ exports[`Render Components from App Renderer GenreQuestionScreen 1`] = `
           <img
             alt="John Wick"
             className="artist__picture"
-            src="https://api.adorable.io/avatars/128/0.9194144816262468"
+            src="https://api.adorable.io/avatars/128/0.7482312266296232"
           />
           John Wick
         </label>
@@ -419,7 +415,7 @@ exports[`Render Components from App Renderer GenreQuestionScreen 1`] = `
           <img
             alt="Neo Man"
             className="artist__picture"
-            src="https://api.adorable.io/avatars/128/0.5676699931656044"
+            src="https://api.adorable.io/avatars/128/0.902329591220685"
           />
           Neo Man
         </label>
